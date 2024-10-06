@@ -1,0 +1,24 @@
+\mode<presentation>
+
+\definecolor{pink_cpu}{HTML}{df3490}
+\definecolor{blue_cpu}{HTML}{5ecae2}
+% Frame title
+\defbeamertemplate*{frametitle}{cpumons}[1][]
+{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle}
+  \begin{tikzpicture}
+  \fill[color=frame_bg, opacity=1] (0, 0) rectangle(12,2);
+    \draw[color=pink_cpu, very thick] (0, 0) -- (12, 0) -- (12, 2);
+    \draw[color=blue_cpu, very thick] (0, 0.1) -- (12.1, 0.1)  -- (12.1, 2);
+    
+   \ifx\insertframesubtitle\@empty%
+      {\node[anchor=west, black,font=\large] at (1.6,0.61){\insertframetitle};}
+      \else%
+      {\node[anchor= west, black,font=\large] at (1.6,0.81){\insertframetitle};%
+       \node[anchor= west, black,font=\small] at (1.6,0.41){\insertframesubtitle};}%
+      \fi
+  \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+\mode<all>

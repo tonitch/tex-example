@@ -1,0 +1,39 @@
+\mode<presentation>
+\definecolor{bg_cpu}{HTML}{1b1b1b}
+\definecolor{bg_section}{HTML}{333333}
+\pgfdeclareimage{logo}{logo.png}
+\setbeamertemplate{background}{
+  
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \fill[color=bg_cpu] (0,0) rectangle (\the\paperwidth,\the\paperheight);
+  \node[inner sep=0pt] (russell) at (\the\paperwidth/2,\the\paperheight-\the\paperheight/4) {
+	  \includegraphics[width=.5\textwidth]{logo.png}
+};
+    \ifnum\thepage>1
+    \fill[color=white, opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fill[color=pink_cpu, opacity=.5] (0, 0) rectangle(1.5,0.4);
+    \fill[color=blue_cpu, opacity=.5] (1.55, 0) rectangle(\the\paperwidth, 0.4);
+    \node[anchor=west, black, font=\usebeamerfont{footline}] at (0.45,0.2){\insertframenumber{}/\inserttotalframenumber};
+    \fi
+  \end{tikzpicture}
+}
+
+\defbeamertemplate*{title page}{cpumons}[1][]
+{ 
+   \vskip5cm%
+    \begin{beamercolorbox}[center,sep=15pt]{title page header}
+      \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip0.75cm%
+    \begin{beamercolorbox}[center]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip0.2cm%
+    \begin{beamercolorbox}[center]{date}
+      \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+  \vfill
+}
+
+\mode<all>
